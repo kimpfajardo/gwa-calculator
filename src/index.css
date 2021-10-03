@@ -5,9 +5,59 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background: #5B21B6;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'gothWide';
+  src: url(./fonts/goth-wide.OTF);
+}
+
+@font-face {
+  font-family: 'gothWideThin';
+  src: url(./fonts/goth-wideThin.OTF);
+}
+
+@font-face {
+  font-family: 'sf';
+  src: url(./fonts/sf.OTF);
+}
+
+@font-face {
+  font-family: 'sfB';
+  src: url(./fonts/sf-bold.OTF);
+}
+
+@font-face {
+  font-family: 'sfS';
+  src: url(./fonts/sf-semi.OTF);
+}
+
+.gothWide {
+  font-family: 'gothWide';
+}
+
+.gothWideThin {
+  font-family: 'gothWideThin';
+}
+
+.sf {
+  font-family: 'sf';
+}
+
+.sfB {
+  font-family: 'sfB';
+}
+
+.sfS {
+  font-family: 'sfS';
 }
