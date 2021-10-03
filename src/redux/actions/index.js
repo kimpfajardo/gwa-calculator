@@ -6,19 +6,23 @@ export const addEntry = (params) => {
         type: 'ADD_ENTRY',
         payload: {
             uuid,
-            unit: 0,
-            grade: 0
+            unit: null,
+            grade: null,
+            unit_error: null,
+            grade_error: null
         }
     }
 };
 
-export const updateEntry = (uuid, values) => {
+export const updateEntry = (uuid, values, unit_error = null, grade_error = null) => {
     return {
         type: 'UPDATE_ENTRY',
         payload: {
             uuid,
-            unit: values.unit,
-            grade: values.grade
+            unit: values.unit ? values.unit : null,
+            grade: values.grade ? values.grade : null,
+            unit_error: unit_error !== null ? unit_error : null,
+            grade_error: grade_error !== null ? grade_error : null,
         }
     }
 }

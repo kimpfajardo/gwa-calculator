@@ -17,6 +17,8 @@ const entryReducer = (state = initialState, action) => {
             if (indexOfObject !== -1) {
                 newState[indexOfObject].grade = action.payload.grade
                 newState[indexOfObject].unit = action.payload.unit
+                newState[indexOfObject].unit_error = action.payload.unit_error
+                newState[indexOfObject].grade_error = action.payload.grade_error
                 return newState
             }
         case 'DELETE_ENTRY':
