@@ -81,8 +81,6 @@ function App() {
       dispatch(updateEntry(brokenEntries[i].uuid, {unit: brokenEntries[i].unit,
         grade: brokenEntries[i].grade}, brokenEntries[i].unit ? null : 'Unit cannot be blank',  brokenEntries[i].grade ? null : 'Grade cannot be blank'))
     }
-
-    console.log('entries', entries)
     if (brokenEntries.length === 0) {
 
       computeGWA()
