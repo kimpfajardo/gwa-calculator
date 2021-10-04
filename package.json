@@ -2,7 +2,7 @@
   "name": "gwa-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kimpfajardo.github.io/gwa-calculator",
+  "homepage": "https://git.heroku.com/gwa-calculator.git",
   "dependencies": {
     "@craco/craco": "^6.3.0",
     "@testing-library/jest-dom": "^5.14.1",
