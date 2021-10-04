@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { addEntry, deleteEntry, updateEntry } from './redux/actions';
 import { formatDecimal, formatNumber } from './functions/numbers';
-import { ChevronsDown, GitHub, Instagram, Plus, Trash, } from 'react-feather';
+import { ChevronsDown, GitHub, Info, Instagram, Plus, Trash, } from 'react-feather';
 import { Helmet } from 'react-helmet';
 
 const Fields = ({entryData}) => {
@@ -140,11 +140,12 @@ function App() {
             <p className='text-white gothWide text-5xl py-5'>{formatNumber(gwa)}</p>
           </div>
         }
-        <div className='absolute bottom-0 right-0 mb-10 mr-10'>
-          <button className='bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full px-5' onClick={() => setShowCred(!showCred)}>About the dev</button>
+        <div className='fixed bottom-0 right-0 mb-10 mr-5'>
+          <button className='hidden sm:block bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full px-5' onClick={() => setShowCred(!showCred)}>About the dev</button>
+      <button className='block sm:hidden bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full' onClick={() => setShowCred(!showCred)}><Info/></button>
         </div>
 
-        <div className='absolute bottom-0 w-full bg-purple-900 overflow-hidden transition-all linear duration-300' style={{height: showCred ? '320px' : '0', padding: showCred ? '20px' : undefined}}>
+        <div className='fixed bottom-0 w-full bg-purple-900 overflow-hidden transition-all linear duration-300' style={{height: showCred ? '320px' : '0', padding: showCred ? '20px' : undefined}}>
           <button className="absolute right-0 mr-5 text-white z-50" onClick={() => setShowCred(!showCred)}><ChevronsDown /></button>
           <div className='w-full sm:w-1/3 mx-auto text-white'>
             <p className='text-center sf opacity-50'>Developed by: </p>
