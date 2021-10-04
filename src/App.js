@@ -2,7 +2,7 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { addEntry, deleteEntry, updateEntry } from './redux/actions';
-import { formatNumber } from './functions/numbers';
+import { formatDecimal, formatNumber } from './functions/numbers';
 import { ChevronDown, ChevronsDown, ChevronsUp, GitHub, Instagram, Plus, Trash, Twitch, Twitter, X, Youtube } from 'react-feather';
 
 const Fields = ({entryData}) => {
@@ -17,32 +17,29 @@ const Fields = ({entryData}) => {
   
 
   const onChangeHandler = (e) => {
-    const newValues = {
-      ...values,
-      [e.target.name] : e.target.value ? e.target.value : null
-    }
     if (!modified) {
       setModified(true)
     }
-    setValues(newValues)
-  }
-  
 
-  useEffect(() => {
-    if (modified) {
-      dispatch(updateEntry(entryData.uuid, values))
+    const newValues = {
+      ...values,
+      [e.target.name] : formatDecimal(e.target.value)
     }
-  },[values])
+    setValues(newValues)
+    if (modified) {
+      dispatch(updateEntry(entryData.uuid, newValues))
+    }
+  }
 
   return (
     <div className={`relative w-full pt-5 flex items-center sf text-gray-500 sm:gap-x-5`}>
-      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.grade_error &&'border-2 border-red-400'}`} type='number' value={entryData.grade} name='grade' placeholder='0.00' onInput={e => onChangeHandler(e)}/>
+      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.grade_error &&'border-2 border-red-400'}`} type='number' value={entryData.grade} name='grade' placeholder='0.00' onChange={e => onChangeHandler(e)}/>
       <div className={`text-white sm:hidden mx-2`}>
-        <button onKeyUp={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
+        <button onClick={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
       </div>
-      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.unit_error &&'border-2 border-red-400'}`} type='number' value={entryData.unit} name='unit' placeholder='0.00' onInput={e => onChangeHandler(e)}/>
+      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.unit_error &&'border-2 border-red-400'}`} type='number' value={entryData.unit} name='unit' placeholder='0.00' onChange={e => onChangeHandler(e)}/>
       <div className={`hidden sm:block sm:absolute text-white sm:mt-8 sm:right-0 sm:top-0 sm:-mr-8`}>
-        <button onKeyUp={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
+        <button onClick={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
       </div>
     </div>
   )
@@ -83,6 +80,12 @@ function App() {
     for (let i = 0; i < brokenEntries.length; i++) {
       dispatch(updateEntry(brokenEntries[i].uuid, {unit: brokenEntries[i].unit,
         grade: brokenEntries[i].grade}, brokenEntries[i].unit ? null : 'Unit cannot be blank',  brokenEntries[i].grade ? null : 'Grade cannot be blank'))
+    }
+
+    console.log('entries', entries)
+    if (brokenEntries.length === 0) {
+
+      computeGWA()
     }
   }
 
