@@ -59,16 +59,13 @@ function App() {
     let sumOfProducts = 0;
     let sumOfUnits = 0
     for(let i = 0; i < entries.length; i++) {
-      if (parseInt(entries[i].grade) === null && parseInt(entries[i].unit) !== null) {
-        break
-      }
-      if (parseInt(entries[i].unit) !== null) {
-        sumOfProducts += parseInt(entries[i].grade) * parseInt(entries[i].unit)
-        sumOfUnits += parseInt(entries[i].unit)
-      }
+      sumOfProducts += entries[i].grade * entries[i].unit
+      sumOfUnits += parseInt(entries[i].unit)
     }
 
     const gwa = sumOfProducts/sumOfUnits
+
+    console.log('sumOfProducts', sumOfProducts, 'sumOfUnits',sumOfUnits)
 
     setGwa(gwa)
     setShowGWA(true)
@@ -142,7 +139,7 @@ function App() {
         }
         <div className='fixed bottom-0 right-0 mb-10 mr-5'>
           <button className='hidden sm:block bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full px-5' onClick={() => setShowCred(!showCred)}>About the dev</button>
-      <button className='block sm:hidden bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full' onClick={() => setShowCred(!showCred)}><Info/></button>
+          <button className='block sm:hidden bg-black p-3 shadow-sm opacity-50 hover:opacity-100 transition-all linear duration-300 text-white rounded-full' onClick={() => setShowCred(!showCred)}><Info/></button>
         </div>
 
         <div className='fixed bottom-0 w-full bg-purple-900 overflow-hidden transition-all linear duration-300' style={{height: showCred ? '320px' : '0', padding: showCred ? '20px' : undefined}}>
