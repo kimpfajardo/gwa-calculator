@@ -145,7 +145,7 @@ function App() {
         </div>
 
         <div className='absolute bottom-0 w-full bg-purple-900 overflow-hidden transition-all linear duration-300' style={{height: showCred ? '320px' : '0', padding: showCred ? '20px' : undefined}}>
-          <button className="absolute right-0 mr-5 text-white" onClick={() => setShowCred(!showCred)}><ChevronsDown /></button>
+          <button className="absolute right-0 mr-5 text-white z-50" onClick={() => setShowCred(!showCred)}><ChevronsDown /></button>
           <div className='w-full sm:w-1/3 mx-auto text-white'>
             <p className='text-center sf opacity-50'>Developed by: </p>
             <div className='flex flex-col items-center py-5 gap-y-3'>
