@@ -9,6 +9,7 @@ const entryReducer = (state = initialState, action) => {
                     ...action.payload
                 }
             ]
+            break;
         case 'UPDATE_ENTRY':
             const indexOfObject = state.findIndex(item => item.uuid === action.payload.uuid)
             const newState = [...state]
@@ -21,6 +22,7 @@ const entryReducer = (state = initialState, action) => {
                 newState[indexOfObject].grade_error = action.payload.grade_error
                 return newState
             }
+            break;
         case 'DELETE_ENTRY':
             const index = state.findIndex(item => item.uuid === action.payload)
             let tempState = [...state]
@@ -30,6 +32,7 @@ const entryReducer = (state = initialState, action) => {
                 tempState.splice(index, 1)
                 return tempState
             }
+            break;
         default:
             return state
     }

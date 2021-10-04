@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { addEntry, deleteEntry, updateEntry } from './redux/actions';
 import { formatDecimal, formatNumber } from './functions/numbers';
-import { ChevronDown, ChevronsDown, ChevronsUp, GitHub, Instagram, Plus, Trash, Twitch, Twitter, X, Youtube } from 'react-feather';
+import { ChevronsDown, GitHub, Instagram, Plus, Trash, } from 'react-feather';
 
 const Fields = ({entryData}) => {
 
@@ -150,7 +150,7 @@ function App() {
           <p className='text-center sf opacity-50'>Developed by: </p>
           <div className='flex flex-col items-center py-5 gap-y-3'>
             <div className='w-16 h-16 bg-gray-300 rounded-full overflow-hidden'>
-              <img src='/img/profile_pic.jpg' />
+              <img src='/img/profile_pic.jpg' alt="Hi! I'm Kim" />
             </div>
             <p className='sf'>Kim Fajardo</p>
             <p className='opacity-20 italic text-center'>A junior dev who loves creating small <br/> tools to improve productivity.</p>
