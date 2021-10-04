@@ -23,7 +23,7 @@ const Fields = ({entryData}) => {
 
     const newValues = {
       ...values,
-      [e.target.name] : formatDecimal(e.target.value)
+      [e.target.name] : e.target.value
     }
     setValues(newValues)
     if (modified) {
@@ -33,11 +33,11 @@ const Fields = ({entryData}) => {
 
   return (
     <div className={`relative w-full pt-5 flex items-center sf text-gray-500 sm:gap-x-5`}>
-      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.grade_error &&'border-2 border-red-400'}`} type='number' value={entryData.grade} name='grade' placeholder='0.00' onChange={e => onChangeHandler(e)}/>
+      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.grade_error &&'border-2 border-red-400'}`} type='number' value={entryData.grade} name='grade' placeholder='0.00' onChange={e => onChangeHandler(e)} min={1}/>
       <div className={`text-white sm:hidden mx-2`}>
         <button onClick={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
       </div>
-      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.unit_error &&'border-2 border-red-400'}`} type='number' value={entryData.unit} name='unit' placeholder='0.00' onChange={e => onChangeHandler(e)}/>
+      <input className={`w-1/2 px-5 p-3 rounded-full focus:outline-none ${entryData.unit_error &&'border-2 border-red-400'}`} type='number' value={entryData.unit} name='unit' placeholder='0.00' onChange={e => onChangeHandler(e)} min={1}/>
       <div className={`hidden sm:block sm:absolute text-white sm:mt-8 sm:right-0 sm:top-0 sm:-mr-8`}>
         <button onClick={() => dispatch(deleteEntry(entryData.uuid))}><Trash/></button>
       </div>
