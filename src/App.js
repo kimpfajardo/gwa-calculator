@@ -146,14 +146,14 @@ function App() {
 
         <div className='absolute bottom-0 w-full bg-purple-900 overflow-hidden transition-all linear duration-300' style={{height: showCred ? '320px' : '0', padding: showCred ? '20px' : undefined}}>
           <button className="absolute right-0 mr-5 text-white" onClick={() => setShowCred(!showCred)}><ChevronsDown /></button>
-          <div className='w-1/3 mx-auto text-white'>
+          <div className='w-full sm:w-1/3 mx-auto text-white'>
             <p className='text-center sf opacity-50'>Developed by: </p>
             <div className='flex flex-col items-center py-5 gap-y-3'>
               <div className='w-16 h-16 bg-gray-300 rounded-full overflow-hidden'>
                 <img src='/img/profile_pic.jpg' alt="Hi! I'm Kim" />
               </div>
               <p className='sf'>Kim Fajardo</p>
-              <p className='opacity-20 italic text-center'>A junior dev who loves creating small <br/> tools to improve productivity.</p>
+              <p className='opacity-20 italic text-center w-full'>A junior dev who loves creating small tools to improve productivity.</p>
             </div>
             <div className='flex justify-center gap-x-5'>
               {/* <a href='https://www.youtube.com/channel/UCGjUeKXukZCtA7FoUehJVWw'><Youtube/></a> */}
