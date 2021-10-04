@@ -82,7 +82,6 @@ function App() {
         grade: brokenEntries[i].grade}, brokenEntries[i].unit ? null : 'Unit cannot be blank',  brokenEntries[i].grade ? null : 'Grade cannot be blank'))
     }
     if (brokenEntries.length === 0) {
-
       computeGWA()
     }
   }
