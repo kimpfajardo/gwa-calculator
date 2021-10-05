@@ -65,8 +65,6 @@ function App() {
 
     const gwa = sumOfProducts/sumOfUnits
 
-    console.log('sumOfProducts', sumOfProducts, 'sumOfUnits',sumOfUnits)
-
     setGwa(gwa)
     setShowGWA(true)
     setCanCompute(false)
